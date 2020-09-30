@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-6 col-sm-offset-6">
       <div class="container d-flex justify-content-between" style="margin-top: 20px">
-        <h1> Your Macros Plan: </h1>
+        <h1> My Macros Plan: </h1>
         <%= link_to new_macro_path do %><i class="fas fa-plus-square" style="font-size: 40px; color: #283c63"></i><% end %>
       </div>
 
@@ -62,3 +62,43 @@
       </div>
     </div>
   </div>
+
+
+
+<html>
+<head>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  title:{
+    text: "My Default Plan:",
+    fontColor: "#283c63",
+    horizontalAlign: "center"
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: 60,
+    //innerRadius: 60,
+    indexLabelFontSize: 17,
+    indexLabel: "{label} - #percent%",
+    // toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+    dataPoints: [
+      { y: 67, label: "protein", color: "#ff4e60" },
+      { y: 28, label: "carbs", color: "#99b898" },
+      { y: 10, label: "fats", color: "#283c63" },
+    ]
+  }]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
+
